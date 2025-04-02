@@ -20,13 +20,17 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    
-    /* Path Aliases */
+
+    /* Paths */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@styles/*": ["./src/styles/*"]
     }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
+  

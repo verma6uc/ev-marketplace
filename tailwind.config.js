@@ -18,100 +18,95 @@ module.exports = {
     },
     extend: {
       colors: {
-        // Main palette
-        primary: {
-          DEFAULT: "#0066CC", // Electric blue
-          50: "#e6f0fa",
-          100: "#cce1f5",
-          200: "#99c3eb",
-          300: "#66a5e0",
-          400: "#3387d6",
-          500: "#0066CC", // Electric blue (primary)
-          600: "#0052a3",
-          700: "#003d7a",
-          800: "#002952",
-          900: "#001429",
+        // Core brand colors
+        "primary": {
+          DEFAULT: "#1E88E5", // Electric blue
+          50: "#E3F2FD",
+          100: "#BBDEFB",
+          200: "#90CAF9",
+          300: "#64B5F6",
+          400: "#42A5F5",
+          500: "#1E88E5", // Primary
+          600: "#1976D2",
+          700: "#1565C0",
+          800: "#0D47A1",
+          900: "#0A2F73",
+          950: "#051D4D",
         },
-        secondary: {
-          DEFAULT: "#2FCB5A", // Energy green
-          50: "#eafaef",
-          100: "#d5f5df",
-          200: "#acebaf",
-          300: "#82e180",
-          400: "#59d76f",
-          500: "#2FCB5A", // Energy green (secondary)
-          600: "#25a249",
-          700: "#1c7a37",
-          800: "#125124",
-          900: "#092912",
+        "energy": {
+          DEFAULT: "#4CAF50", // Energy green
+          50: "#E8F5E9",
+          100: "#C8E6C9",
+          200: "#A5D6A7",
+          300: "#81C784",
+          400: "#66BB6A",
+          500: "#4CAF50", // Energy green
+          600: "#43A047",
+          700: "#388E3C",
+          800: "#2E7D32",
+          900: "#1B5E20",
+          950: "#0E3B12",
         },
-        accent: {
-          DEFAULT: "#F59E0B", // Amber for alerts/CTAs
-          50: "#fef5e7",
-          100: "#fdebd0",
-          200: "#fbd7a1",
-          300: "#f9c372",
-          400: "#f7af43",
-          500: "#F59E0B", // Amber (accent)
-          600: "#c47e09",
-          700: "#935f07",
-          800: "#623f04",
-          900: "#312002",
+        "slate": {
+          DEFAULT: "#78909C", // Slate gray
+          50: "#ECEFF1",
+          100: "#CFD8DC",
+          200: "#B0BEC5",
+          300: "#90A4AE",
+          400: "#78909C", // Slate gray
+          500: "#607D8B",
+          600: "#546E7A",
+          700: "#455A64",
+          800: "#37474F",
+          900: "#263238",
+          950: "#1A252A",
         },
-        slate: {
-          DEFAULT: "#64748B", // Slate gray
-          50: "#f0f2f4",
-          100: "#e1e4e9",
-          200: "#c3c9d3",
-          300: "#a5afbd",
-          400: "#8794a7",
-          500: "#64748B", // Slate gray (neutral)
-          600: "#525d70",
-          700: "#3d4654",
-          800: "#292f38",
-          900: "#14171c",
+        "amber": {
+          DEFAULT: "#FFC107", // Amber for alerts/warnings
+          50: "#FFF8E1",
+          100: "#FFECB3",
+          200: "#FFE082",
+          300: "#FFD54F",
+          400: "#FFCA28",
+          500: "#FFC107", // Amber
+          600: "#FFB300",
+          700: "#FFA000",
+          800: "#FF8F00",
+          900: "#FF6F00",
+          950: "#E65100",
         },
-        // Semantic colors
-        success: "#2FCB5A", // Same as secondary
-        warning: "#F59E0B", // Same as accent
-        danger: "#EF4444", // Red for error states
-        info: "#0066CC", // Same as primary
-        background: "#FFFFFF",
-        foreground: "#0F172A",
-        border: "hsl(214.3 31.8% 91.4%)",
-        input: "hsl(214.3 31.8% 91.4%)",
-        ring: "hsl(222.2 84% 4.9%)",
-        card: {
-          DEFAULT: "hsl(0 0% 100%)",
-          foreground: "hsl(222.2 84% 4.9%)",
-        },
-        popover: {
-          DEFAULT: "hsl(0 0% 100%)",
-          foreground: "hsl(222.2 84% 4.9%)",
+        "accent": "#FF7043", // Soft orange for CTAs
+        
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
         },
         muted: {
-          DEFAULT: "hsl(210 40% 96.1%)",
-          foreground: "hsl(215.4 16.3% 46.9%)",
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
         },
-        destructive: {
-          DEFAULT: "hsl(0 84.2% 60.2%)",
-          foreground: "hsl(210 40% 98%)",
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
         },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+      },
+      fontFamily: {
+        sans: ["Inter", "sans-serif"],
+        display: ["Space Grotesk", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-      },
-      fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        display: ['Montserrat', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
-      },
-      boxShadow: {
-        soft: "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)",
-        normal: "0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04)",
-        medium: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.02)",
       },
       keyframes: {
         "accordion-down": {
@@ -122,22 +117,35 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
-        pulse: {
-          '0%, 100%': { opacity: 1 },
-          '50%': { opacity: 0.6 },
+        "pulse-glow": {
+          "0%, 100%": { 
+            boxShadow: "0 0 0 0 rgba(30, 136, 229, 0)" 
+          },
+          "50%": { 
+            boxShadow: "0 0 0 8px rgba(30, 136, 229, 0.2)" 
+          },
         },
-        flow: {
-          '0%': { backgroundPosition: '0% 50%' },
-          '100%': { backgroundPosition: '100% 50%' },
+        "flow": {
+          "0%": { 
+            backgroundPosition: "0% 50%" 
+          },
+          "100%": { 
+            backgroundPosition: "100% 50%" 
+          },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-        "flow": "flow 3s ease infinite alternate",
+        "pulse-glow": "pulse-glow 2s ease-in-out infinite",
+        "flow": "flow 15s linear infinite alternate",
+      },
+      backgroundImage: {
+        "circuit-pattern": "url('/patterns/circuit.svg')",
+        "energy-flow": "linear-gradient(90deg, rgba(30, 136, 229, 0.1) 0%, rgba(76, 175, 80, 0.1) 100%)",
       },
     },
   },
   plugins: [require("tailwindcss-animate")],
 }
+  

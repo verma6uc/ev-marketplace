@@ -1,6 +1,7 @@
 
 # VoltVoyage: EV Re-sale Platform
 
-A trusted, specialized marketplace connecting sellers and buyers of pre-owned electric vehicles while providing unique technical information, verification services, and community insights.
+VoltVoyage is a specialized marketplace for pre-owned electric vehicles, focusing on providing transparent battery health information, charging compatibility details, and connecting EV enthusiasts.
 
-Built with React, TypeScript, Tailwind CSS, and Shadcn UI components.
+This project is built with React, TypeScript, Tailwind CSS, and Vite, leveraging shadcn/ui components for a cohesive and accessible user interface.
+  

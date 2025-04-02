@@ -2,138 +2,160 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+ 
 @layer base {
   :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215 16% 47%;
+    
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    
+    --primary: 212 81% 49%;
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 120 39% 45%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --accent: 14 100% 63%;
+    --accent-foreground: 222 47% 11%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 212 81% 49%;
+    
     --radius: 0.5rem;
   }
-
-  html {
-    scroll-behavior: smooth;
+ 
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 210 40% 98%;
+    --primary-foreground: 222 47% 11%;
+    
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    
+    --accent: 14 80% 50%;
+    --accent-foreground: 210 40% 98%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    
+    --ring: 212 91% 49%;
   }
-
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
   body {
-    @apply text-foreground;
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
-
+  
+  /* Custom typography styles */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-tight text-foreground;
+    @apply font-display font-semibold tracking-tight;
   }
-
+  
   h1 {
-    @apply text-4xl font-bold md:text-5xl lg:text-6xl;
+    @apply text-3xl md:text-4xl lg:text-5xl;
   }
-
+  
   h2 {
-    @apply text-3xl font-bold md:text-4xl;
+    @apply text-2xl md:text-3xl lg:text-4xl;
   }
-
+  
   h3 {
-    @apply text-2xl font-bold md:text-3xl;
+    @apply text-xl md:text-2xl;
   }
-
+  
   h4 {
-    @apply text-xl font-semibold md:text-2xl;
+    @apply text-lg md:text-xl;
   }
-
-  h5 {
-    @apply text-lg font-semibold;
+  
+  p {
+    @apply leading-relaxed;
   }
-
-  h6 {
-    @apply text-base font-semibold;
+  
+  /* Custom component styles */
+  .battery-indicator {
+    @apply relative h-4 w-24 bg-slate-200 rounded-sm overflow-hidden;
   }
-
-  /* Focus styles for better accessibility */
-  :focus-visible {
-    @apply outline-none ring-2 ring-primary ring-offset-2;
+  
+  .battery-level {
+    @apply absolute inset-0 h-full bg-gradient-to-r from-amber-500 to-energy-500 transition-all duration-500;
   }
-}
-
-@layer components {
-  /* Circuit pattern background */
-  .bg-circuit {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M54 22c0-12-18-8-18 4 0 12-24 8-24-4 0-12 18-8 18 4 0 12 24 8 24-4z' fill='none' stroke='%230066CC' stroke-width='0.5' opacity='0.1'/%3E%3C/svg%3E");
-    background-size: 60px 60px;
+  
+  .circuit-bg {
+    @apply bg-circuit-pattern bg-no-repeat bg-cover opacity-5;
   }
-
-  /* Energy flow animation for backgrounds */
-  .bg-energy-flow {
-    @apply bg-gradient-to-r from-primary-50 via-secondary-50 to-primary-50 bg-[length:200%_100%];
-    animation: flow 8s ease infinite;
+  
+  .energy-flow-bg {
+    @apply bg-energy-flow bg-size-200 animate-flow;
   }
-
-  /* Battery icon with health indicator */
-  .battery-health {
-    @apply relative inline-flex items-center justify-center rounded-md border border-slate-200 bg-white p-2;
+  
+  .card-hover {
+    @apply transition duration-300 hover:shadow-lg hover:-translate-y-1;
   }
-
-  .battery-health-high {
-    @apply before:absolute before:inset-0 before:rounded-md before:bg-secondary before:opacity-10;
-  }
-
-  .battery-health-medium {
-    @apply before:absolute before:inset-0 before:rounded-md before:bg-accent before:opacity-10;
-  }
-
-  .battery-health-low {
-    @apply before:absolute before:inset-0 before:rounded-md before:bg-danger before:opacity-10;
-  }
-
-  /* Card styles */
-  .ev-card {
-    @apply relative rounded-lg border border-slate-200 bg-white p-4 transition-all duration-300 hover:shadow-soft;
-  }
-
-  /* Button styles */
-  .btn {
-    @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
-  }
-
+  
   .btn-primary {
-    @apply bg-primary text-white hover:bg-primary-600 focus:ring-primary;
+    @apply px-4 py-2 bg-primary-600 text-white rounded-full hover:bg-primary-700 transition-colors;
   }
-
-  .btn-secondary {
-    @apply bg-secondary text-white hover:bg-secondary-600 focus:ring-secondary;
+  
+  .btn-energy {
+    @apply px-4 py-2 bg-energy-600 text-white rounded-full hover:bg-energy-700 transition-colors;
   }
-
+  
   .btn-outline {
-    @apply border border-slate-300 bg-transparent hover:bg-slate-50 focus:ring-slate-400;
+    @apply px-4 py-2 border border-slate-300 rounded-full hover:bg-slate-50 transition-colors;
   }
-
-  /* Input styles */
-  .input {
-    @apply rounded-md border border-slate-300 bg-white px-3 py-2 text-sm transition-colors placeholder:text-slate-400 hover:border-slate-400 focus:border-primary focus:outline-none;
+  
+  .cta-glow {
+    @apply relative overflow-hidden;
   }
-}
-
-@layer utilities {
-  /* Custom scrollbar */
-  .scrollbar-thin {
-    scrollbar-width: thin;
+  
+  .cta-glow::after {
+    @apply content-[''] absolute -inset-[3px] bg-gradient-to-r from-primary-400 to-energy-400 rounded-full blur opacity-70 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse-glow;
   }
-
-  .scrollbar-thin::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+  
+  /* Accessibility enhancements */
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary-500 ring-offset-2;
   }
-
-  .scrollbar-thin::-webkit-scrollbar-track {
-    @apply bg-slate-100 rounded-full;
+  
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
   }
-
-  .scrollbar-thin::-webkit-scrollbar-thumb {
-    @apply bg-slate-300 rounded-full hover:bg-slate-400;
-  }
-
-  /* Text gradient for titles */
-  .text-gradient {
-    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
-  }
-
-  /* Grid layouts for EV listings */
-  .ev-grid {
-    @apply grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  
+  /* Skip link for keyboard users */
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-primary-700 focus:font-semibold focus:rounded-md focus:shadow-md;
   }
 }
+  
